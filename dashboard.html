@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lunar Host Dashboard</title>
+<link rel="stylesheet" href="panel.css">
+</head>
+
+<body>
+
+<div class="sidebar">
+<h2>🌙 Lunar Host</h2>
+<p>Welcome, <span id="usernameDisplay"></span></p>
+<a href="dashboard.html">Dashboard</a>
+<a href="servers.html">Servers</a>
+<a href="profile.html">Profile</a>
+<a href="settings.html">Settings</a>
+<a href="#" onclick="logout()">Logout</a>
+</div>
+
+<div class="main">
+
+<h1>Dashboard</h1>
+
+<div class="stats">
+<div class="card">CPU Usage<br><b>25%</b></div>
+<div class="card">RAM Usage<br><b>1.2GB</b></div>
+<div class="card">Disk Space<br><b>10GB</b></div>
+<div class="card">Active Servers<br><b>1</b></div>
+</div>
+
+<div class="card">
+<h3>Server Console</h3>
+<div class="console">
+[LunarHost] Server Online...
+</div>
+</div>
+
+</div>
+
+<script src="panel.js"></script>
+</body>
+</html>
