@@ -26,13 +26,7 @@ const loginBtn = document.querySelector(".login-trigger");
 const signinForm = document.querySelector(".credentials-panel.signin form");
 const signupForm = document.querySelector(".credentials-panel.signup form");
 
-// Prevent crash if elements missing
-if(!wrapper || !registerBtn || !loginBtn || !signinForm || !signupForm){
-console.error("Login elements missing");
-return;
-}
-
-// Toggle panels
+// Toggle
 registerBtn.onclick = (e)=>{
 e.preventDefault();
 wrapper.classList.add("toggled");
@@ -43,7 +37,7 @@ e.preventDefault();
 wrapper.classList.remove("toggled");
 };
 
-// Signup Firebase
+// REGISTER
 signupForm.onsubmit = (e)=>{
 e.preventDefault();
 
@@ -60,7 +54,7 @@ wrapper.classList.remove("toggled");
 .catch(err=>alert(err.message));
 };
 
-// Login Firebase
+// LOGIN
 signinForm.onsubmit = (e)=>{
 e.preventDefault();
 
