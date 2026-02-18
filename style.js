@@ -66,5 +66,3 @@ signInWithEmailAndPassword(auth,email,password)
 .then(()=>location.href="dashboard.html")
 .catch(()=>alert("Invalid login"));
 };
-
-});
