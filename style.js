@@ -54,15 +54,19 @@ wrapper.classList.remove("toggled");
 .catch(err=>alert(err.message));
 };
 
-// LOGIN
+// LOGIN (Firebase uses EMAIL)
 signinForm.onsubmit = (e)=>{
 e.preventDefault();
 
 const inputs = signinForm.querySelectorAll("input");
-const email = inputs[0].value.trim();
+
+// USERNAME field is ignored
 const password = inputs[1].value.trim();
+
+// Email must come from REGISTERED EMAIL
+const email = prompt("Enter your registered email:");
 
 signInWithEmailAndPassword(auth,email,password)
 .then(()=>location.href="dashboard.html")
-.catch(()=>alert("Invalid login"));
+.catch(err=>alert(err.message));
 };
