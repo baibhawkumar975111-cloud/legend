@@ -1,4 +1,3 @@
-// Wait for page load
 document.addEventListener("DOMContentLoaded", () => {
     const wrapper = document.querySelector(".auth-wrapper");
     const registerBtn = document.querySelector(".register-trigger");
@@ -11,9 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ".credentials-panel.signup form"
     );
 
-    // =============================
     // SWITCH LOGIN / REGISTER VIEW
-    // =============================
     registerBtn.addEventListener("click", (e) => {
         e.preventDefault();
         wrapper.classList.add("toggled");
@@ -24,9 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         wrapper.classList.remove("toggled");
     });
 
-    // =============================
-    // SIGNUP SYSTEM
-    // =============================
+    // SIGNUP
     signupForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
@@ -36,13 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const password = inputs[2].value.trim();
 
         if (!username || !email || !password) {
-            alert("Please fill all fields.");
+            alert("Fill all fields");
             return;
         }
 
         let users = JSON.parse(localStorage.getItem("users")) || [];
 
-        // Check existing user
         const exists = users.find(
             u => u.username === username || u.email === email
         );
@@ -55,15 +49,12 @@ document.addEventListener("DOMContentLoaded", () => {
         users.push({ username, email, password });
         localStorage.setItem("users", JSON.stringify(users));
 
-        alert("Registration successful! Please login.");
-
+        alert("Registered! Now login.");
         signupForm.reset();
         wrapper.classList.remove("toggled");
     });
 
-    // =============================
-    // LOGIN SYSTEM
-    // =============================
+    // LOGIN
     signinForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
@@ -78,16 +69,13 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
         if (!user) {
-            alert("Invalid login credentials.");
+            alert("Invalid login");
             return;
         }
 
-        alert("Login successful!");
-
-        // Save session
         localStorage.setItem("loggedInUser", user.username);
 
-        // Redirect example (change page if needed)
-        // window.location.href = "dashboard.html";
+        // Redirect to dashboard
+        window.location.href = "dashboard.html";
     });
 });
